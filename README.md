@@ -9,20 +9,20 @@ This skill needs Codex collaboration tools (`spawn_agent`) and the Luna / Terra 
 ## Install
 
 ```sh
-npx skills add bruno-c-p/orchestrate
+npx skills add bruno-c-p/codex-orchestrate
 ```
 
 Inside Codex:
 
 ```text
-$skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate
+$skill-installer https://github.com/bruno-c-p/codex-orchestrate/tree/main/skills/orchestrate
 ```
 
 Or copy the folder into a skills directory Codex already scans:
 
 ```sh
-git clone https://github.com/bruno-c-p/orchestrate.git
-cp -r orchestrate/skills/orchestrate ~/.agents/skills/
+git clone https://github.com/bruno-c-p/codex-orchestrate.git
+cp -r codex-orchestrate/skills/orchestrate ~/.agents/skills/
 ```
 
 Codex also loads `~/.codex/skills/` and repo-local `.agents/skills/`.
