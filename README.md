@@ -1,10 +1,8 @@
 # Orchestrate
 
-A skill for splitting substantial work across sub-agents.
+The main agent answers you. It is also the one that says the work is done. Sub-agents get one job and a list of files they may touch. They do not merge or deploy. They do not pick up extra files.
 
-The root agent keeps decomposition, user communication, approvals, synthesis, and the final claim. Workers get bounded assignments, not vague help.
-
-The first implementation is for Codex (`spawn_agent`, Luna / Terra). Other providers will land in this repo.
+Codex is the only agent hooked up so far. You need `spawn_agent`, Luna, and Terra. I will add others. They are not in here yet.
 
 ## Install
 
@@ -12,35 +10,18 @@ The first implementation is for Codex (`spawn_agent`, Luna / Terra). Other provi
 npx skills add bruno-c-p/orchestrate
 ```
 
-Inside Codex:
+In Codex:
 
 ```text
 $skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate
 ```
 
-Or copy the folder into a skills directory your agent already scans:
-
-```sh
-git clone https://github.com/bruno-c-p/orchestrate.git
-cp -r orchestrate/skills/orchestrate ~/.agents/skills/
-```
-
-Codex also loads `~/.codex/skills/` and repo-local `.agents/skills/`.
+Or copy `skills/orchestrate` into `~/.agents/skills/`. Codex also reads `~/.codex/skills/` and `.agents/skills/` inside a repo.
 
 ## When to use it
 
-Fire this skill when a request has two or more separable workstreams, mixes exploration with implementation or verification, or would otherwise pin the root agent on a long command, test suite, transfer, or monitor.
+Two chunks of work that do not share files. A test suite, transfer, or CI watch that would leave the main agent stuck for minutes. A review you should not rubber-stamp yourself.
 
-Stay single-agent for a small step, or for work that has to stay sequential.
+A one-step fix does not need this. Neither does a sequence where step two is garbage without step one.
 
-## Layout
-
-```text
-skills/orchestrate/
-  SKILL.md
-  agents/openai.yaml
-```
-
-## License
-
-MIT
+Instructions are in `skills/orchestrate/SKILL.md`. MIT.
