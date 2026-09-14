@@ -2,10 +2,11 @@
 
 The main agent answers you. It is also the one that says the work is done. Sub-agents get one job and a list of files they may touch. They do not merge or deploy. They do not pick up extra files.
 
-Two skills live here. Same job, different tools.
+Three skills live here. Same job, different tools.
 
 - Codex: `skills/orchestrate-codex`. Needs `spawn_agent`, Luna, and Terra.
 - Grok: `skills/orchestrate-grok`. Needs `spawn_subagent` (`explore`, `plan`, `general-purpose`). Uses `workflow`, background commands, and `monitor` when those fit.
+- Claude: `skills/orchestrate-claude`. Needs the `Agent` tool (`Task` is the old name). Opus for high-stakes work, Sonnet for real leaves, Haiku for mechanical jobs.
 
 ## Install
 
@@ -13,7 +14,7 @@ Two skills live here. Same job, different tools.
 npx skills add bruno-c-p/orchestrate
 ```
 
-That installs both. Pass `--skill orchestrate-codex` or `--skill orchestrate-grok` to take one.
+That installs all three. Pass `--skill orchestrate-codex`, `--skill orchestrate-grok`, or `--skill orchestrate-claude` to take one.
 
 In Codex:
 
@@ -27,9 +28,10 @@ Or copy the folder your agent already scans:
 git clone https://github.com/bruno-c-p/orchestrate.git
 cp -r orchestrate/skills/orchestrate-codex ~/.agents/skills/
 cp -r orchestrate/skills/orchestrate-grok ~/.grok/skills/
+cp -r orchestrate/skills/orchestrate-claude ~/.claude/skills/
 ```
 
-Grok also reads `~/.agents/skills/` and repo-local `.grok/skills/` or `.agents/skills/`.
+Grok also reads `~/.agents/skills/` and repo-local `.grok/skills/` or `.agents/skills/`. Claude also reads `~/.agents/skills/` and repo-local `.claude/skills/` or `.agents/skills/`.
 
 ## When to use it
 
