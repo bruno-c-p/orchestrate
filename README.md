@@ -2,11 +2,15 @@
 
 The main agent answers you. It is also the one that says the work is done. Sub-agents get one job and a list of files they may touch. They do not merge or deploy. They do not pick up extra files.
 
-Three skills live here. Same job, different tools.
+Same job, different tools. Hard work on the expensive model. Busywork on the cheap one.
 
-- Codex: `skills/orchestrate-codex`. Needs `spawn_agent`, Luna, and Terra.
-- Grok: `skills/orchestrate-grok`. Needs `spawn_subagent` (`explore`, `plan`, `general-purpose`). Uses `workflow`, background commands, and `monitor` when those fit.
-- Claude: `skills/orchestrate-claude`. Needs the `Agent` tool (`Task` is the old name). Opus for high-stakes work, Sonnet for real leaves, Haiku for mechanical jobs.
+- Codex: `skills/orchestrate-codex`. `spawn_agent`. Luna for leaves, Terra for high-stakes.
+- Grok: `skills/orchestrate-grok`. `spawn_subagent` (`explore`, `plan`, `general-purpose`).
+- Claude: `skills/orchestrate-claude`. `Agent` tool. Opus / Sonnet / Haiku.
+- Gemini CLI: `skills/orchestrate-gemini`. `gemini-3.8-flash` thinking high vs low.
+- Antigravity: `skills/orchestrate-antigravity`. Same Flash split, via `invoke_subagent`.
+- OpenCode Go: `skills/orchestrate-opencode`. Kimi K3 / GLM-5.3-Flash / DeepSeek V4.1 Flash.
+- Cursor: `skills/orchestrate-cursor`. API frontier / included Grok / Composer 2.5.
 
 ## Install
 
@@ -14,7 +18,7 @@ Three skills live here. Same job, different tools.
 npx skills add bruno-c-p/orchestrate
 ```
 
-That installs all three. Pass `--skill orchestrate-codex`, `--skill orchestrate-grok`, or `--skill orchestrate-claude` to take one.
+That installs all of them. Pass `--skill orchestrate-codex` (or grok, claude, gemini, antigravity, opencode, cursor) to take one.
 
 In Codex:
 
@@ -29,9 +33,11 @@ git clone https://github.com/bruno-c-p/orchestrate.git
 cp -r orchestrate/skills/orchestrate-codex ~/.agents/skills/
 cp -r orchestrate/skills/orchestrate-grok ~/.grok/skills/
 cp -r orchestrate/skills/orchestrate-claude ~/.claude/skills/
+cp -r orchestrate/skills/orchestrate-gemini ~/.gemini/skills/
+cp -r orchestrate/skills/orchestrate-antigravity ~/.gemini/antigravity/skills/
+cp -r orchestrate/skills/orchestrate-opencode ~/.config/opencode/skills/
+cp -r orchestrate/skills/orchestrate-cursor ~/.cursor/skills/
 ```
-
-Grok also reads `~/.agents/skills/` and repo-local `.grok/skills/` or `.agents/skills/`. Claude also reads `~/.agents/skills/` and repo-local `.claude/skills/` or `.agents/skills/`.
 
 ## When to use it
 
