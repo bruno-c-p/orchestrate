@@ -4,7 +4,7 @@ The main agent answers you. It is also the one that says the work is done. Sub-a
 
 Two skills live here. Same job, different tools.
 
-- Codex: `skills/orchestrate`. Needs `spawn_agent`, Luna, and Terra.
+- Codex: `skills/orchestrate-codex`. Needs `spawn_agent`, Luna, and Terra.
 - Grok: `skills/orchestrate-grok`. Needs `spawn_subagent` (`explore`, `plan`, `general-purpose`). Uses `workflow`, background commands, and `monitor` when those fit.
 
 ## Install
@@ -13,19 +13,19 @@ Two skills live here. Same job, different tools.
 npx skills add bruno-c-p/orchestrate
 ```
 
-That installs both. Pass `--skill orchestrate` or `--skill orchestrate-grok` to take one.
+That installs both. Pass `--skill orchestrate-codex` or `--skill orchestrate-grok` to take one.
 
 In Codex:
 
 ```text
-$skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate
+$skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate-codex
 ```
 
 Or copy the folder your agent already scans:
 
 ```sh
 git clone https://github.com/bruno-c-p/orchestrate.git
-cp -r orchestrate/skills/orchestrate ~/.agents/skills/
+cp -r orchestrate/skills/orchestrate-codex ~/.agents/skills/
 cp -r orchestrate/skills/orchestrate-grok ~/.grok/skills/
 ```
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Orchestrate Codex"
+  short_description: "Route substantial work across specialized sub-agents"
+  default_prompt: "Use $orchestrate-codex to split this task among the right Terra and Luna sub-agents."
