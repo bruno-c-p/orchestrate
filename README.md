@@ -2,7 +2,10 @@
 
 The main agent answers you. It is also the one that says the work is done. Sub-agents get one job and a list of files they may touch. They do not merge or deploy. They do not pick up extra files.
 
-Codex is the only agent hooked up so far. You need `spawn_agent`, Luna, and Terra. I will add others. They are not in here yet.
+Two skills live here. Same job, different tools.
+
+- Codex: `skills/orchestrate`. Needs `spawn_agent`, Luna, and Terra.
+- Grok: `skills/orchestrate-grok`. Needs `spawn_subagent` (`explore`, `plan`, `general-purpose`). Uses `workflow`, background commands, and `monitor` when those fit.
 
 ## Install
 
@@ -10,13 +13,23 @@ Codex is the only agent hooked up so far. You need `spawn_agent`, Luna, and Terr
 npx skills add bruno-c-p/orchestrate
 ```
 
+That installs both. Pass `--skill orchestrate` or `--skill orchestrate-grok` to take one.
+
 In Codex:
 
 ```text
 $skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate
 ```
 
-Or copy `skills/orchestrate` into `~/.agents/skills/`. Codex also reads `~/.codex/skills/` and `.agents/skills/` inside a repo.
+Or copy the folder your agent already scans:
+
+```sh
+git clone https://github.com/bruno-c-p/orchestrate.git
+cp -r orchestrate/skills/orchestrate ~/.agents/skills/
+cp -r orchestrate/skills/orchestrate-grok ~/.grok/skills/
+```
+
+Grok also reads `~/.agents/skills/` and repo-local `.grok/skills/` or `.agents/skills/`.
 
 ## When to use it
 
@@ -24,4 +37,4 @@ Two chunks of work that do not share files. A test suite, transfer, or CI watch 
 
 A one-step fix does not need this. Neither does a sequence where step two is garbage without step one.
 
-Instructions are in `skills/orchestrate/SKILL.md`. MIT.
+MIT
