@@ -1,28 +1,28 @@
 # Orchestrate
 
-A Codex skill for splitting substantial work across Luna and Terra sub-agents.
+A skill for splitting substantial work across sub-agents.
 
 The root agent keeps decomposition, user communication, approvals, synthesis, and the final claim. Workers get bounded assignments, not vague help.
 
-This skill needs Codex collaboration tools (`spawn_agent`) and the Luna / Terra model families. Other agents can read it. They cannot run it as written.
+The first implementation is for Codex (`spawn_agent`, Luna / Terra). Other providers will land in this repo.
 
 ## Install
 
 ```sh
-npx skills add bruno-c-p/codex-orchestrate
+npx skills add bruno-c-p/orchestrate
 ```
 
 Inside Codex:
 
 ```text
-$skill-installer https://github.com/bruno-c-p/codex-orchestrate/tree/main/skills/orchestrate
+$skill-installer https://github.com/bruno-c-p/orchestrate/tree/main/skills/orchestrate
 ```
 
-Or copy the folder into a skills directory Codex already scans:
+Or copy the folder into a skills directory your agent already scans:
 
 ```sh
-git clone https://github.com/bruno-c-p/codex-orchestrate.git
-cp -r codex-orchestrate/skills/orchestrate ~/.agents/skills/
+git clone https://github.com/bruno-c-p/orchestrate.git
+cp -r orchestrate/skills/orchestrate ~/.agents/skills/
 ```
 
 Codex also loads `~/.codex/skills/` and repo-local `.agents/skills/`.
